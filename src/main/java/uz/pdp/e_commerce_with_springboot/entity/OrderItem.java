@@ -2,10 +2,10 @@ package uz.pdp.e_commerce_with_springboot.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,4 +17,7 @@ public class OrderItem extends BaseEntity {
     @ManyToOne
     private Product product;
     private Integer amount;
+
+    @Transient
+    private String qrBase64;
 }

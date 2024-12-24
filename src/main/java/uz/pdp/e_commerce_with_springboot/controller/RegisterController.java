@@ -54,7 +54,7 @@ public class RegisterController {
             attachmentContent.setPhoto(photo.getBytes());
             attachmentContent.setAttachment(save);
             attachmentContentRepository.save(attachmentContent);
-            user.setUserPhoto(attachment);
+//            user.setUserPhoto(attachment);
         }
         userRepository.save(user);
         System.out.println("Firstname: " + firstname);

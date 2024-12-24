@@ -27,20 +27,22 @@
 <body>
 <div class="container mt-5">
     <h2 class="mb-4">Order Details</h2>
-    <h5 th:text="'Order Name: ' + ${order.name}">Order Name</h5>
-<!--    <h5 th:text="'Order Date: ' + ${order.getDateTimeFormatted()}">Order Date</h5>-->
-
+    <h5 th:text="'Username: ' + ${order.name}">Order Name</h5>
+    <h5 th:text="'Order Date: ' + ${order.getDateTimeFormatted()}">Order Date</h5>
     <div class="order-item" th:each="item : ${orderItems}">
         <h5>Product Name: <span th:text="${item.product.name}">Product Name</span></h5>
         <div class="product-info">
-            <p>Price: $<span th:text="${item.product.price}">0</span></p>
+            <p>Price (UZS): <span th:text="${item.product.price}">0</span></p>
             <p>Amount: <span th:text="${item.amount}">1</span></p>
         </div>
         <p class="total-price">
-            Total: $<span th:text="${item.amount * item.product.price}">0</span>
+            Total (UZS): <span th:text="${item.amount * item.product.price}">0</span>
         </p>
+        <div>
+            <h6>Cashback QR Code</h6>
+            <img th:src="${item.qrBase64}" alt="QR Code">
+        </div>
     </div>
-
     <a href="/order" class="btn btn-primary">Back to Orders</a>
 </div>
 </body>

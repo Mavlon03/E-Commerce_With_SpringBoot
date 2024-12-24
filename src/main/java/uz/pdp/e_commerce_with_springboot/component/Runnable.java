@@ -28,8 +28,8 @@ public class Runnable implements CommandLineRunner {
     public void run(String... args) throws Exception {
         if (update.equals("create")){
 
-            User user = new User("Mavlon", "Akmalov", "1", "1", Roles.ADMIN, null);
-            User user1 = new User("Qalandar", "Qalandarov", "2", "2", Roles.USER, null);
+            User user = new User("Mavlon", "Akmalov", "1", "1", Roles.SUPER, null);
+            User user1 = new User("Qalandar", "Qalandarov", "2", "2", Roles.ADMIN, null);
             userRepository.saveAll(List.of(user, user1));
 
             Category category = new Category("Yegulik");
@@ -38,9 +38,7 @@ public class Runnable implements CommandLineRunner {
             categoryRepository.saveAll(List.of(category , category1, category2));
 
             Product product = new Product("Olma", 5000,1,categoryRepository.findById(1).get(), null);
-            Product product1 = new Product("Pepsi", 10000,1,categoryRepository.findById(2).get(),null);
-            Product product2 = new Product("Shapka", 25000,1,categoryRepository.findById(3).get(),null);
-            productRepository.saveAll(List.of(product, product1, product2));
+            productRepository.saveAll(List.of(product));
         }
     }
 }
